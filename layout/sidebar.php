@@ -28,6 +28,13 @@
             </a>
             <b class="arrow"></b>
         </li>
+        <li class="">
+            <a href="logout.php">
+                <i class="menu-icon fa fa-power-off"></i>
+                <span class="menu-text"> Logout </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
     </ul>
 
     <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
