@@ -1,4 +1,5 @@
 <?php $page = htmlspecialchars(@$_GET['page']);
+$proses = htmlspecialchars(@$_GET['proses']);
 if (in_array($page, [null, 'home'])) {
     $data = array(
         'judul' => 'Home',
@@ -12,11 +13,19 @@ if (in_array($page, [null, 'home'])) {
         'view' => 'kriteria/index.php'
     );
 } else if ($page == 'user') {
-    $data = array(
-        'judul' => 'Data User',
-        'breadcrumb' => '<li class="active">Data User</li>',
-        'view' => 'user/index.php'
-    );
+    if ($proses == 'tambah') {
+        $data = array(
+            'judul' => 'Tambah User',
+            'breadcrumb' => '<li><a href="./?page=user">User</a></li><li class="active">Tambah User</li>',
+            'view' => 'user/tambah.php'
+        );
+    } else {
+        $data = array(
+            'judul' => 'Data User',
+            'breadcrumb' => '<li class="active">Data User</li>',
+            'view' => 'user/index.php'
+        );
+    }
 }
 
 return $data;
