@@ -23,6 +23,9 @@
                             <a class="green" href="./?page=user&proses=edit&id=<?= $data['id_user'] ?>">
                                 <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
                             </a>
+                            <a class="red" href="./user/delete.php?id=<?= $data['id_user'] ?>" onclick="return confirm('Anda yakin hapus data ini?');">
+                                <i class="ace-icon glyphicon glyphicon-trash bigger-130"></i>
+                            </a>
                         </td>
                     </tr>
             <?php $no++;
