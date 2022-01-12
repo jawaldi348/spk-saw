@@ -1,4 +1,5 @@
 <?php
+require 'config/database.php';
 session_start();
 if (empty($_SESSION['iduser'])) {
     header('location:./login.php');
@@ -23,6 +24,15 @@ $route = include('config/routes.php');
     <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
     <script src="assets/js/ace-extra.min.js"></script>
+    <style>
+        .form-actions {
+            text-align: left !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            padding-left: 12px !important;
+            margin: 0px;
+        }
+    </style>
 </head>
 
 <body class="no-skin">
