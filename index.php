@@ -1,4 +1,10 @@
-<?php $route = include('config/routes.php') ?>
+<?php
+session_start();
+if (empty($_SESSION['iduser'])) {
+    header('location:./login.php');
+}
+$route = include('config/routes.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
