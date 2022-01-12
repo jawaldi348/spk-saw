@@ -11,6 +11,12 @@ if (in_array($page, [null, 'home'])) {
         'breadcrumb' => '<li class="active">Data Kriteria</li>',
         'view' => 'kriteria/index.php'
     );
+} else if ($page == 'user') {
+    $data = array(
+        'judul' => 'Data User',
+        'breadcrumb' => '<li class="active">Data User</li>',
+        'view' => 'user/index.php'
+    );
 }
 
 return $data;

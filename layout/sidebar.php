@@ -28,6 +28,13 @@
             </a>
             <b class="arrow"></b>
         </li>
+        <li class="<?= in_array($page, ['user']) ? 'active' : '' ?>">
+            <a href="./?page=user">
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text"> User </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
         <li class="">
             <a href="logout.php">
                 <i class="menu-icon fa fa-power-off"></i>
