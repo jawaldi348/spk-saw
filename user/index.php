@@ -19,7 +19,11 @@
                     <tr>
                         <td class="center"><?= $no ?></td>
                         <td><?= $data['username'] ?></td>
-                        <td class="center"></td>
+                        <td class="center">
+                            <a class="green" href="./?page=user&proses=edit&id=<?= $data['id_user'] ?>">
+                                <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
+                            </a>
+                        </td>
                     </tr>
             <?php $no++;
                 }

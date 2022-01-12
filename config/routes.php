@@ -19,6 +19,12 @@ if (in_array($page, [null, 'home'])) {
             'breadcrumb' => '<li><a href="./?page=user">User</a></li><li class="active">Tambah User</li>',
             'view' => 'user/tambah.php'
         );
+    } else if ($proses == 'edit') {
+        $data = array(
+            'judul' => 'Edit User',
+            'breadcrumb' => '<li><a href="./?page=user">User</a></li><li class="active">Edit User</li>',
+            'view' => 'user/edit.php'
+        );
     } else {
         $data = array(
             'judul' => 'Data User',
