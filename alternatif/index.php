@@ -25,6 +25,9 @@
                             <a class="green" href="./?page=alternatif&proses=edit&id=<?= $data['kode_alternatif'] ?>">
                                 <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
                             </a>
+                            <a class="red" href="./alternatif/delete.php?id=<?= $data['kode_alternatif'] ?>" onclick="return confirm('Anda yakin hapus data ini?');">
+                                <i class="ace-icon glyphicon glyphicon-trash bigger-130"></i>
+                            </a>
                         </td>
                     </tr>
             <?php $no++;
