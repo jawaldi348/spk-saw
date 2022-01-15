@@ -14,17 +14,17 @@
             </a>
             <b class="arrow"></b>
         </li>
+        <li class="<?= in_array($page, ['alternatif']) ? 'active' : '' ?>">
+            <a href="./?page=alternatif">
+                <i class="menu-icon fa fa-list-alt"></i>
+                <span class="menu-text"> Data Alternatif </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
         <li class="<?= in_array($page, ['kriteria']) ? 'active' : '' ?>">
             <a href="./?page=kriteria">
                 <i class="menu-icon fa fa-list-alt"></i>
                 <span class="menu-text"> Data Kriteria </span>
-            </a>
-            <b class="arrow"></b>
-        </li>
-        <li class="">
-            <a href="#">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Data Alternatif </span>
             </a>
             <b class="arrow"></b>
         </li>

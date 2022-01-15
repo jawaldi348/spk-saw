@@ -6,6 +6,12 @@ if (in_array($page, [null, 'home'])) {
         'breadcrumb' => '',
         'view' => 'layout/home.php'
     );
+} else if ($page == 'alternatif') {
+    $data = array(
+        'judul' => 'Data Alternatif',
+        'breadcrumb' => '<li class="active">Data Alternatif</li>',
+        'view' => 'alternatif/index.php'
+    );
 } else if ($page == 'kriteria') {
     $data = array(
         'judul' => 'Data Kriteria',
