@@ -7,11 +7,19 @@ if (in_array($page, [null, 'home'])) {
         'view' => 'layout/home.php'
     );
 } else if ($page == 'alternatif') {
-    $data = array(
-        'judul' => 'Data Alternatif',
-        'breadcrumb' => '<li class="active">Data Alternatif</li>',
-        'view' => 'alternatif/index.php'
-    );
+    if ($proses == 'tambah') {
+        $data = array(
+            'judul' => 'Tambah Alternatif',
+            'breadcrumb' => '<li><a href="./?page=alternatif">Alternatif</a></li><li class="active">Tambah Alternatif</li>',
+            'view' => 'alternatif/tambah.php'
+        );
+    } else {
+        $data = array(
+            'judul' => 'Data Alternatif',
+            'breadcrumb' => '<li class="active">Data Alternatif</li>',
+            'view' => 'alternatif/index.php'
+        );
+    }
 } else if ($page == 'kriteria') {
     $data = array(
         'judul' => 'Data Kriteria',
