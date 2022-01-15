@@ -13,6 +13,12 @@ if (in_array($page, [null, 'home'])) {
             'breadcrumb' => '<li><a href="./?page=alternatif">Alternatif</a></li><li class="active">Tambah Alternatif</li>',
             'view' => 'alternatif/tambah.php'
         );
+    } else if ($proses == 'edit') {
+        $data = array(
+            'judul' => 'Edit Alternatif',
+            'breadcrumb' => '<li><a href="./?page=alternatif">Alternatif</a></li><li class="active">Edit Alternatif</li>',
+            'view' => 'alternatif/edit.php'
+        );
     } else {
         $data = array(
             'judul' => 'Data Alternatif',

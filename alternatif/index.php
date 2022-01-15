@@ -21,7 +21,11 @@
                         <td class="center"><?= $no ?></td>
                         <td><?= $data['kode_alternatif'] ?></td>
                         <td><?= $data['nama_alternatif'] ?></td>
-                        <td class="center"></td>
+                        <td class="center">
+                            <a class="green" href="./?page=alternatif&proses=edit&id=<?= $data['kode_alternatif'] ?>">
+                                <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
+                            </a>
+                        </td>
                     </tr>
             <?php $no++;
                 }
