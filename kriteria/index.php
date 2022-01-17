@@ -1,3 +1,6 @@
+<div class="table-header">
+    <a href="./?page=kriteria&proses=tambah" class="btn btn-xs btn-success"><i class="ace-icon glyphicon glyphicon-plus bigger-80"></i> Tambah</a>
+</div>
 <div>
     <table id="dynamic-table" class="table table-striped table-bordered table-hover">
         <thead>
