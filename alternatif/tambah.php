@@ -3,7 +3,7 @@ $error = '';
 if (isset($_POST['tambah'])) {
     $kode = $_POST['kode'];
     $nama = $_POST['nama'];
-    if ($kode == '' || $kode == '') {
+    if ($kode == '' || $nama == '') {
         $error = 'Kode dan Nama Alternatif tidak boleh kosong';
     } else {
         $query = "INSERT INTO alternatif VALUES('$kode','$nama')";
