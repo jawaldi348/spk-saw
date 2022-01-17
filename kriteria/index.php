@@ -23,7 +23,11 @@
                         <td><?= $data['kode_kriteria'] ?></td>
                         <td><?= $data['nama_kriteria'] ?></td>
                         <td><?= $data['bobot_kriteria'] ?></td>
-                        <td class="center"></td>
+                        <td class="center">
+                            <a class="green" href="./?page=kriteria&proses=edit&id=<?= $data['kode_kriteria'] ?>">
+                                <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
+                            </a>
+                        </td>
                     </tr>
             <?php $no++;
                 }

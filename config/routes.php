@@ -33,6 +33,12 @@ if (in_array($page, [null, 'home'])) {
             'breadcrumb' => '<li><a href="./?page=kriteria">Kriteria</a></li><li class="active">Tambah Kriteria</li>',
             'view' => 'kriteria/tambah.php'
         );
+    } else if ($proses == 'edit') {
+        $data = array(
+            'judul' => 'Edit Kriteria',
+            'breadcrumb' => '<li><a href="./?page=kriteria">Kriteria</a></li><li class="active">Edit Kriteria</li>',
+            'view' => 'kriteria/edit.php'
+        );
     } else {
         $data = array(
             'judul' => 'Data Kriteria',
