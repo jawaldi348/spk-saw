@@ -27,11 +27,25 @@ if (in_array($page, [null, 'home'])) {
         );
     }
 } else if ($page == 'kriteria') {
-    $data = array(
-        'judul' => 'Data Kriteria',
-        'breadcrumb' => '<li class="active">Data Kriteria</li>',
-        'view' => 'kriteria/index.php'
-    );
+    if ($proses == 'tambah') {
+        $data = array(
+            'judul' => 'Tambah Kriteria',
+            'breadcrumb' => '<li><a href="./?page=kriteria">Kriteria</a></li><li class="active">Tambah Kriteria</li>',
+            'view' => 'kriteria/tambah.php'
+        );
+    } else if ($proses == 'edit') {
+        $data = array(
+            'judul' => 'Edit Kriteria',
+            'breadcrumb' => '<li><a href="./?page=kriteria">Kriteria</a></li><li class="active">Edit Kriteria</li>',
+            'view' => 'kriteria/edit.php'
+        );
+    } else {
+        $data = array(
+            'judul' => 'Data Kriteria',
+            'breadcrumb' => '<li class="active">Data Kriteria</li>',
+            'view' => 'kriteria/index.php'
+        );
+    }
 } else if ($page == 'user') {
     if ($proses == 'tambah') {
         $data = array(
