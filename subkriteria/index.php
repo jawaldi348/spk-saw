@@ -29,6 +29,9 @@
                             <a class="green" href="./?page=subkriteria&proses=edit&id=<?= $data['kode_subkriteria'] ?>">
                                 <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
                             </a>
+                            <a class="red" href="./subkriteria/delete.php?id=<?= $data['kode_subkriteria'] ?>" onclick="return confirm('Anda yakin hapus data ini?');">
+                                <i class="ace-icon glyphicon glyphicon-trash bigger-130"></i>
+                            </a>
                         </td>
                     </tr>
             <?php $no++;
