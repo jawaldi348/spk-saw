@@ -47,11 +47,19 @@ if (in_array($page, [null, 'home'])) {
         );
     }
 } else if ($page == 'subkriteria') {
-    $data = array(
-        'judul' => 'Data Sub Kriteria',
-        'breadcrumb' => '<li class="active">Data Sub Kriteria</li>',
-        'view' => 'subkriteria/index.php'
-    );
+    if ($proses == 'tambah') {
+        $data = array(
+            'judul' => 'Tambah Sub Kriteria',
+            'breadcrumb' => '<li><a href="./?page=subkriteria">Sub Kriteria</a></li><li class="active">Tambah Sub Kriteria</li>',
+            'view' => 'subkriteria/tambah.php'
+        );
+    } else {
+        $data = array(
+            'judul' => 'Data Sub Kriteria',
+            'breadcrumb' => '<li class="active">Data Sub Kriteria</li>',
+            'view' => 'subkriteria/index.php'
+        );
+    }
 } else if ($page == 'user') {
     if ($proses == 'tambah') {
         $data = array(
