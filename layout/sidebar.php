@@ -28,6 +28,13 @@
             </a>
             <b class="arrow"></b>
         </li>
+        <li class="<?= in_array($page, ['subkriteria']) ? 'active' : '' ?>">
+            <a href="./?page=subkriteria">
+                <i class="menu-icon fa fa-list-alt"></i>
+                <span class="menu-text"> Data Sub Kriteria </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
         <li class="<?= in_array($page, ['user']) ? 'active' : '' ?>">
             <a href="./?page=user">
                 <i class="menu-icon fa fa-users"></i>
