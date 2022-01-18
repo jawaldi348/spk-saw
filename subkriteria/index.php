@@ -25,7 +25,11 @@
                         <td><?= $data['kode_kriteria'] . ' - ' . $data['nama_kriteria'] ?></td>
                         <td><?= $data['nama_subkriteria'] ?></td>
                         <td><?= $data['bobot_subkriteria'] ?></td>
-                        <td class="center"></td>
+                        <td class="center">
+                            <a class="green" href="./?page=subkriteria&proses=edit&id=<?= $data['kode_subkriteria'] ?>">
+                                <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
+                            </a>
+                        </td>
                     </tr>
             <?php $no++;
                 }

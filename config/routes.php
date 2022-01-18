@@ -53,6 +53,12 @@ if (in_array($page, [null, 'home'])) {
             'breadcrumb' => '<li><a href="./?page=subkriteria">Sub Kriteria</a></li><li class="active">Tambah Sub Kriteria</li>',
             'view' => 'subkriteria/tambah.php'
         );
+    } else if ($proses == 'edit') {
+        $data = array(
+            'judul' => 'Edit Sub Kriteria',
+            'breadcrumb' => '<li><a href="./?page=subkriteria">Sub Kriteria</a></li><li class="active">Edit Sub Kriteria</li>',
+            'view' => 'subkriteria/edit.php'
+        );
     } else {
         $data = array(
             'judul' => 'Data Sub Kriteria',
