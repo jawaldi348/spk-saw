@@ -46,6 +46,12 @@ if (in_array($page, [null, 'home'])) {
             'view' => 'kriteria/index.php'
         );
     }
+} else if ($page == 'subkriteria') {
+    $data = array(
+        'judul' => 'Data Sub Kriteria',
+        'breadcrumb' => '<li class="active">Data Sub Kriteria</li>',
+        'view' => 'subkriteria/index.php'
+    );
 } else if ($page == 'user') {
     if ($proses == 'tambah') {
         $data = array(
