@@ -8,10 +8,27 @@ $error = '';
 if (isset($_POST['edit'])) {
     $kode = $_POST['kode'];
     $nama = $_POST['nama'];
+    $data_kriteria = $_POST['kriteria'];
     if ($nama == '') {
         $error = 'Nama alternatif tidak boleh kosong';
     } else {
         $query = "UPDATE alternatif SET nama_alternatif='$nama' WHERE kode_alternatif='$kode'";
+        foreach ($data_kriteria as $kriteria) {
+            $id_kriteria = $kriteria['id_kriteria'];
+            $id_subkriteria = $kriteria['sub_kriteria'];
+            if ($id_subkriteria != '') {
+                $periksa_data = "SELECT * FROM alternatif_kriteria WHERE id_alternatif='$kode' AND id_kriteria='$id_kriteria'";
+                $execute_periksa = $connect->query($periksa_data);
+                if ($execute_periksa->num_rows > 0) {
+                    $data_periksa = $execute_periksa->fetch_array(MYSQLI_ASSOC);
+                    $id = $data_periksa['id_alternatif_kriteria'];
+                    $query_subkriteria = "UPDATE alternatif_kriteria SET id_subkriteria='$id_subkriteria' WHERE id_alternatif_kriteria='$id'";
+                } else {
+                    $query_subkriteria = "INSERT INTO alternatif_kriteria(id_alternatif,id_kriteria,id_subkriteria) VALUES('$kode','$id_kriteria','$id_subkriteria')";
+                }
+                $connect->query($query_subkriteria);
+            }
+        }
         if ($connect->query($query) === true) {
             echo '<script>window.location.replace("./?page=alternatif")</script>';
         }
@@ -36,6 +53,34 @@ if (isset($_POST['edit'])) {
                             <label class="control-label">Nama Alternatif</label>
                             <input type="text" name="nama" id="nama" class="form-control" value="<?= $data['nama_alternatif'] ?>">
                         </div>
+                        <?php $query_kriteria = "SELECT * FROM kriteria";
+                        $result = $connect->query($query_kriteria);
+                        if ($result->num_rows > 0) {
+                            while ($kriteria = $result->fetch_array(MYSQLI_ASSOC)) { ?>
+                                <input type="hidden" name="kriteria[<?= $kriteria['kode_kriteria'] ?>][id_kriteria]" value="<?= $kriteria['kode_kriteria'] ?>">
+                                <div class="form-group">
+                                    <label class="control-label"><?= $kriteria['kode_kriteria'] . ' - ' . $kriteria['nama_kriteria'] ?></label>
+                                    <select name="kriteria[<?= $kriteria['kode_kriteria'] ?>][sub_kriteria]" class="form-control">
+                                        <option value="">-- Pilih --</option>
+                                        <?php
+                                        $kode_kriteria = $kriteria['kode_kriteria'];
+                                        $query_subkriteria = "SELECT * FROM subkriteria WHERE kriteria_subkriteria='$kode_kriteria'";
+                                        $resultsub = $connect->query($query_subkriteria);
+                                        if ($resultsub->num_rows > 0) {
+                                            while ($subkriteria = $resultsub->fetch_array(MYSQLI_ASSOC)) {
+                                                $id_subkriteria = $subkriteria['kode_subkriteria'];
+                                                $query_cek = "SELECT * FROM alternatif_kriteria WHERE id_alternatif='$id' AND id_subkriteria='$id_subkriteria'";
+                                                $execute = $connect->query($query_cek);
+                                                $data_cek = $execute->fetch_array(MYSQLI_ASSOC);
+                                                $selected = $data_cek != null ? 'selected' : '';
+                                        ?>
+                                                <option value="<?= $subkriteria['kode_subkriteria'] ?>" <?= $selected ?>><?= $subkriteria['kode_subkriteria'] . ' - ' . $subkriteria['nama_subkriteria'] ?></option>
+                                        <?php }
+                                        } ?>
+                                    </select>
+                                </div>
+                        <?php }
+                        } ?>
                     </div>
                     <div class="form-actions center">
                         <button type="submit" name="edit" class="btn btn-sm btn-primary"><i class="ace-icon fa fa-floppy-o"></i> Simpan</button>
