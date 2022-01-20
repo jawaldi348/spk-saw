@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php $query = "SELECT * FROM subkriteria,kriteria WHERE kriteria_subkriteria=kode_kriteria";
+            <?php $query = "SELECT * FROM subkriteria,kriteria WHERE kriteria_subkriteria=kode_kriteria ORDER BY kode_kriteria ASC";
             $execute = $connect->query($query);
             if ($execute->num_rows > 0) {
                 $no = 1;
