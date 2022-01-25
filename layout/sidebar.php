@@ -14,34 +14,44 @@
             </a>
             <b class="arrow"></b>
         </li>
-        <li class="<?= in_array($page, ['kriteria']) ? 'active' : '' ?>">
-            <a href="./?page=kriteria">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Data Kriteria </span>
-            </a>
-            <b class="arrow"></b>
-        </li>
-        <li class="<?= in_array($page, ['subkriteria']) ? 'active' : '' ?>">
-            <a href="./?page=subkriteria">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Data Sub Kriteria </span>
-            </a>
-            <b class="arrow"></b>
-        </li>
-        <li class="<?= in_array($page, ['alternatif']) ? 'active' : '' ?>">
-            <a href="./?page=alternatif">
-                <i class="menu-icon fa fa-list-alt"></i>
-                <span class="menu-text"> Data Alternatif </span>
-            </a>
-            <b class="arrow"></b>
-        </li>
-        <li class="<?= in_array($page, ['user']) ? 'active' : '' ?>">
-            <a href="./?page=user">
-                <i class="menu-icon fa fa-users"></i>
-                <span class="menu-text"> User </span>
-            </a>
-            <b class="arrow"></b>
-        </li>
+        <?php if ($_SESSION['level'] == 'admin') : ?>
+            <li class="<?= in_array($page, ['kriteria']) ? 'active' : '' ?>">
+                <a href="./?page=kriteria">
+                    <i class="menu-icon fa fa-list-alt"></i>
+                    <span class="menu-text"> Data Kriteria </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
+            <li class="<?= in_array($page, ['subkriteria']) ? 'active' : '' ?>">
+                <a href="./?page=subkriteria">
+                    <i class="menu-icon fa fa-list-alt"></i>
+                    <span class="menu-text"> Data Sub Kriteria </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
+            <li class="<?= in_array($page, ['alternatif']) ? 'active' : '' ?>">
+                <a href="./?page=alternatif">
+                    <i class="menu-icon fa fa-list-alt"></i>
+                    <span class="menu-text"> Data Alternatif </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
+            <li class="<?= in_array($page, ['user']) ? 'active' : '' ?>">
+                <a href="./?page=user">
+                    <i class="menu-icon fa fa-users"></i>
+                    <span class="menu-text"> User </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
+        <?php elseif ($_SESSION['level'] == 'mhs') : ?>
+            <li>
+                <a href="#">
+                    <i class="menu-icon fa fa-list-alt"></i>
+                    <span class="menu-text"> Biodata </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
+        <?php endif ?>
         <li class="">
             <a href="logout.php">
                 <i class="menu-icon fa fa-power-off"></i>
