@@ -1,3 +1,12 @@
+<?php $id = $_SESSION['iduser'];
+if ($_SESSION['level'] == 'admin') :
+    $query = "SELECT *,username AS nama FROM user WHERE id_user='$id'";
+elseif ($_SESSION['level'] == 'mhs') :
+    $query = "SELECT *,nama_mhs AS nama FROM mahasiswa WHERE kode_mhs='$id'";
+endif;
+$execute = $connect->query($query);
+$data = $execute->fetch_array(MYSQLI_ASSOC);
+?>
 <div id="navbar" class="navbar navbar-default ace-save-state">
     <div class="navbar-container ace-save-state" id="navbar-container">
         <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -24,7 +33,7 @@
                         <img class="nav-user-photo" src="assets/images/avatar3.png" alt="Jason's Photo" />
                         <span class="user-info">
                             <small>Welcome,</small>
-                            Jason
+                            <?= $data['nama'] ?>
                         </span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
