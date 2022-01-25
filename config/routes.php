@@ -26,6 +26,12 @@ if (in_array($page, [null, 'home'])) {
             'view' => 'alternatif/index.php'
         );
     }
+} else if ($page == 'biodata') {
+    $data = array(
+        'judul' => 'Biodata Mahasiswa',
+        'breadcrumb' => '<li class="active">Biodata Mahasiswa</li>',
+        'view' => 'biodata/index.php'
+    );
 } else if ($page == 'kriteria') {
     if ($proses == 'tambah') {
         $data = array(

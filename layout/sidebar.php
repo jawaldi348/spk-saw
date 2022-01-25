@@ -44,8 +44,8 @@
                 <b class="arrow"></b>
             </li>
         <?php elseif ($_SESSION['level'] == 'mhs') : ?>
-            <li>
-                <a href="#">
+            <li class="<?= in_array($page, ['biodata']) ? 'active' : '' ?>">
+                <a href="./?page=biodata">
                     <i class="menu-icon fa fa-list-alt"></i>
                     <span class="menu-text"> Biodata </span>
                 </a>
