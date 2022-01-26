@@ -1,30 +1,29 @@
 <?php
 $id = $_GET['id'];
-$query = "SELECT * FROM alternatif WHERE kode_alternatif='$id'";
+$query = "SELECT * FROM mahasiswa WHERE kode_mhs='$id'";
 $execute = $connect->query($query);
 $data = $execute->fetch_array(MYSQLI_ASSOC);
 
 $error = '';
 if (isset($_POST['edit'])) {
-    $kode = $_POST['kode'];
-    $nama = $_POST['nama'];
+    $nodaftar = $_POST['nodaftar'];
     $data_kriteria = $_POST['kriteria'];
-    if ($nama == '') {
-        $error = 'Nama alternatif tidak boleh kosong';
+    if ($nodaftar == '') {
+        $error = 'No Pendaftaran tidak boleh kosong';
     } else {
-        $query = "UPDATE alternatif SET nama_alternatif='$nama' WHERE kode_alternatif='$kode'";
+        $query = "UPDATE mahasiswa SET nodaftar_mhs='$nodaftar' WHERE kode_mhs='$id'";
         foreach ($data_kriteria as $kriteria) {
             $id_kriteria = $kriteria['id_kriteria'];
             $id_subkriteria = $kriteria['sub_kriteria'];
             if ($id_subkriteria != '') {
-                $periksa_data = "SELECT * FROM alternatif_kriteria WHERE id_alternatif='$kode' AND id_kriteria='$id_kriteria'";
+                $periksa_data = "SELECT * FROM biodata WHERE id_mahasiswa='$id' AND id_kriteria='$id_kriteria'";
                 $execute_periksa = $connect->query($periksa_data);
                 if ($execute_periksa->num_rows > 0) {
                     $data_periksa = $execute_periksa->fetch_array(MYSQLI_ASSOC);
-                    $id = $data_periksa['id_alternatif_kriteria'];
-                    $query_subkriteria = "UPDATE alternatif_kriteria SET id_subkriteria='$id_subkriteria' WHERE id_alternatif_kriteria='$id'";
+                    $idbiodata = $data_periksa['id_biodata'];
+                    $query_subkriteria = "UPDATE biodata SET id_subkriteria='$id_subkriteria' WHERE id_biodata='$idbiodata'";
                 } else {
-                    $query_subkriteria = "INSERT INTO alternatif_kriteria(id_alternatif,id_kriteria,id_subkriteria) VALUES('$kode','$id_kriteria','$id_subkriteria')";
+                    $query_subkriteria = "INSERT INTO biodata(id_mahasiswa,id_kriteria,id_subkriteria) VALUES('$id','$id_kriteria','$id_subkriteria')";
                 }
                 $connect->query($query_subkriteria);
             }
@@ -46,12 +45,12 @@ if (isset($_POST['edit'])) {
                     <div class="widget-main">
                         <?= $error != '' ? '<div class="alert alert-danger">' . $error . '</div>' : '' ?>
                         <div class="form-group">
-                            <label class="control-label">Kode Alternatif</label>
-                            <input type="text" name="kode" id="kode" class="form-control" value="<?= $data['kode_alternatif'] ?>" readonly>
+                            <label class="control-label">Nama</label>
+                            <input type="text" class="form-control" value="<?= $data['nama_mhs'] ?>" readonly>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Nama Alternatif</label>
-                            <input type="text" name="nama" id="nama" class="form-control" value="<?= $data['nama_alternatif'] ?>">
+                            <label class="control-label">No Pendaftaran</label>
+                            <input type="text" name="nodaftar" id="nodaftar" class="form-control" value="<?= $data['nodaftar_mhs'] ?>">
                         </div>
                         <?php $query_kriteria = "SELECT * FROM kriteria";
                         $result = $connect->query($query_kriteria);
@@ -69,12 +68,12 @@ if (isset($_POST['edit'])) {
                                         if ($resultsub->num_rows > 0) {
                                             while ($subkriteria = $resultsub->fetch_array(MYSQLI_ASSOC)) {
                                                 $id_subkriteria = $subkriteria['kode_subkriteria'];
-                                                $query_cek = "SELECT * FROM alternatif_kriteria WHERE id_alternatif='$id' AND id_subkriteria='$id_subkriteria'";
+                                                $query_cek = "SELECT * FROM biodata WHERE id_mahasiswa='$id' AND id_subkriteria='$id_subkriteria'";
                                                 $execute = $connect->query($query_cek);
                                                 $data_cek = $execute->fetch_array(MYSQLI_ASSOC);
                                                 $selected = $data_cek != null ? 'selected' : '';
                                         ?>
-                                                <option value="<?= $subkriteria['kode_subkriteria'] ?>" <?= $selected ?>><?= $subkriteria['kode_subkriteria'] . ' - ' . $subkriteria['nama_subkriteria'] ?></option>
+                                                <option value="<?= $subkriteria['kode_subkriteria'] ?>" <?= $selected ?>><?= $subkriteria['nama_subkriteria'] ?></option>
                                         <?php }
                                         } ?>
                                     </select>
