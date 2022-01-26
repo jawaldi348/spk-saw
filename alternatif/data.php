@@ -17,6 +17,8 @@ class Data
             ];
             $data_kriteria = [];
             $result_kriteria = [];
+            $rangking = 0;
+            $total_poin = 0;
             $query_kriteria = "SELECT * FROM kriteria";
             $query_result = $connect->query($query_kriteria);
             while ($kriteria = $query_result->fetch_array(MYSQLI_ASSOC)) {
@@ -43,9 +45,16 @@ class Data
                 else :
                     $normalisasi_kriteria = $data_nilai['bobot_subkriteria'] / $data_normalisasi_kriteria['max_kriteria'];
                 endif;
+                $total_poin = $total_poin + $data_nilai['bobot_subkriteria'];
+                $jumlah_nilai = $kriteria['bobot_kriteria'] * $normalisasi_kriteria;
+                $rangking = $rangking + $jumlah_nilai;
                 $result_kriteria['normalisasi_kriteria'] = $normalisasi_kriteria;
+                $result_kriteria['jumlah_nilai'] = number_format($jumlah_nilai, 2, '.', '');
                 $data_kriteria[] = $result_kriteria;
             }
+            $result['total_poin'] = number_format($total_poin, 2, '.', '');
+            $result['total_nilai'] = number_format($rangking, 2, '.', '');
+            $result['persentase'] = number_format($rangking * 100, 0, '.', '');
             $result['kriteria'] = $data_kriteria;
             $data_mhs[] = $result;
         }
