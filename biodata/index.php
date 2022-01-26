@@ -53,7 +53,7 @@ if (isset($_POST['tambah'])) {
                             while ($kriteria = $result->fetch_array(MYSQLI_ASSOC)) { ?>
                                 <input type="hidden" name="kriteria[<?= $kriteria['kode_kriteria'] ?>][id_kriteria]" value="<?= $kriteria['kode_kriteria'] ?>">
                                 <div class="form-group">
-                                    <label class="control-label"><?= $kriteria['kode_kriteria'] . ' - ' . $kriteria['nama_kriteria'] ?></label>
+                                    <label class="control-label"><?= $kriteria['nama_kriteria'] ?></label>
                                     <select name="kriteria[<?= $kriteria['kode_kriteria'] ?>][sub_kriteria]" class="form-control">
                                         <option value="">-- Pilih --</option>
                                         <?php
@@ -68,7 +68,7 @@ if (isset($_POST['tambah'])) {
                                                 $data_cek = $execute->fetch_array(MYSQLI_ASSOC);
                                                 $selected = $data_cek != null ? 'selected' : '';
                                         ?>
-                                                <option value="<?= $subkriteria['kode_subkriteria'] ?>" <?= $selected ?>><?= $subkriteria['kode_subkriteria'] . ' - ' . $subkriteria['nama_subkriteria'] ?></option>
+                                                <option value="<?= $subkriteria['kode_subkriteria'] ?>" <?= $selected ?>><?= $subkriteria['nama_subkriteria'] ?></option>
                                         <?php }
                                         } ?>
                                     </select>
