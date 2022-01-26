@@ -21,8 +21,8 @@ if (in_array($page, [null, 'home'])) {
         );
     } else {
         $data = array(
-            'judul' => 'Data Alternatif',
-            'breadcrumb' => '<li class="active">Data Alternatif</li>',
+            'judul' => 'Data Mahasiswa',
+            'breadcrumb' => '<li class="active">Data Mahasiswa</li>',
             'view' => 'alternatif/index.php'
         );
     }

@@ -32,7 +32,7 @@
             <li class="<?= in_array($page, ['alternatif']) ? 'active' : '' ?>">
                 <a href="./?page=alternatif">
                     <i class="menu-icon fa fa-list-alt"></i>
-                    <span class="menu-text"> Data Alternatif </span>
+                    <span class="menu-text"> Data Mahasiswa </span>
                 </a>
                 <b class="arrow"></b>
             </li>
