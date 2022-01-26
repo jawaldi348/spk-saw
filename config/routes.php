@@ -26,6 +26,12 @@ if (in_array($page, [null, 'home'])) {
             'view' => 'alternatif/index.php'
         );
     }
+} else if ($page == 'perhitungan') {
+    $data = array(
+        'judul' => 'Penerapan Metode',
+        'breadcrumb' => '<li class="active">Penerapan Metode</li>',
+        'view' => 'perhitungan/index.php'
+    );
 } else if ($page == 'biodata') {
     $data = array(
         'judul' => 'Biodata Mahasiswa',

@@ -36,6 +36,13 @@
                 </a>
                 <b class="arrow"></b>
             </li>
+            <li class="<?= in_array($page, ['perhitungan']) ? 'active' : '' ?>">
+                <a href="./?page=perhitungan">
+                    <i class="menu-icon fa fa-pie-chart"></i>
+                    <span class="menu-text"> Penerapan Metode </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
             <li class="<?= in_array($page, ['user']) ? 'active' : '' ?>">
                 <a href="./?page=user">
                     <i class="menu-icon fa fa-users"></i>
