@@ -38,9 +38,9 @@ $data_mahasiswa = $data->data_mahasiswa();
                         <a class="green" href="./?page=alternatif&proses=edit&id=<?= $mahasiswa['kode_mhs'] ?>">
                             <i class="ace-icon glyphicon glyphicon-edit bigger-130"></i>
                         </a>
-                        <!-- <a class="red" href="./alternatif/delete.php?id=$mahasiswa['kode_mhs']" onclick="return confirm('Anda yakin hapus data ini?');">
+                        <a class="red" href="./alternatif/delete.php?id=<?= $mahasiswa['kode_mhs'] ?>" onclick="return confirm('Anda yakin hapus data ini?');">
                             <i class="ace-icon glyphicon glyphicon-trash bigger-130"></i>
-                        </a> -->
+                        </a>
                     </td>
                 </tr>
             <?php $no++;
