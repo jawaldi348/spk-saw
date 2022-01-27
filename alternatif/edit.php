@@ -6,12 +6,13 @@ $data = $execute->fetch_array(MYSQLI_ASSOC);
 
 $error = '';
 if (isset($_POST['edit'])) {
+    $nama = $_POST['nama'];
     $nodaftar = $_POST['nodaftar'];
     $data_kriteria = $_POST['kriteria'];
     if ($nodaftar == '') {
         $error = 'No Pendaftaran tidak boleh kosong';
     } else {
-        $query = "UPDATE mahasiswa SET nodaftar_mhs='$nodaftar' WHERE kode_mhs='$id'";
+        $query = "UPDATE mahasiswa SET nodaftar_mhs='$nodaftar',nama_mhs='$nama' WHERE kode_mhs='$id'";
         foreach ($data_kriteria as $kriteria) {
             $id_kriteria = $kriteria['id_kriteria'];
             $id_subkriteria = $kriteria['sub_kriteria'];
@@ -46,7 +47,7 @@ if (isset($_POST['edit'])) {
                         <?= $error != '' ? '<div class="alert alert-danger">' . $error . '</div>' : '' ?>
                         <div class="form-group">
                             <label class="control-label">Nama</label>
-                            <input type="text" class="form-control" value="<?= $data['nama_mhs'] ?>" readonly>
+                            <input type="text" name="nama" class="form-control" value="<?= $data['nama_mhs'] ?>">
                         </div>
                         <div class="form-group">
                             <label class="control-label">No Pendaftaran</label>
