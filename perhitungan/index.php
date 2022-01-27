@@ -47,7 +47,11 @@ $data_mahasiswa = $data->data_mahasiswa();
             </tr>
         </thead>
         <tbody>
-            <?php $no = 1;
+            <?php
+            array_multisort(array_map(function ($element) {
+                return $element['total_nilai'];
+            }, $data_mahasiswa['mahasiswa']), SORT_DESC, $data_mahasiswa['mahasiswa']);
+            $no = 1;
             foreach ($data_mahasiswa['mahasiswa'] as $mahasiswa) { ?>
                 <tr>
                     <td class="center"><?= $no ?></td>

@@ -53,8 +53,9 @@ class Data
                 $data_kriteria[] = $result_kriteria;
             }
             $result['total_poin'] = number_format($total_poin, 2, '.', '');
-            $result['total_nilai'] = number_format($rangking, 2, '.', '');
-            $result['persentase'] = number_format($rangking * 100, 0, '.', '');
+            $result['total_nilai'] = number_format($rangking, 4, '.', '');
+            // $result['persentase'] = number_format($rangking * 100, 0, '.', '');
+            $result['persentase'] = (float)number_format($rangking * 100, 4);
             $result['kriteria'] = $data_kriteria;
             $data_mhs[] = $result;
         }
