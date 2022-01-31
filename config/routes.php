@@ -6,6 +6,26 @@ if (in_array($page, [null, 'home'])) {
         'breadcrumb' => '',
         'view' => 'layout/home.php'
     );
+} else if ($page == 'tahun-akademik') {
+    if ($proses == 'tambah') {
+        $data = array(
+            'judul' => 'Tambah Tahun Akademik',
+            'breadcrumb' => '<li><a href="./?page=tahun-akademik">Tahun Akademik</a></li><li class="active">Tambah</li>',
+            'view' => 'tahun_akademik/tambah.php'
+        );
+    } else if ($proses == 'edit') {
+        $data = array(
+            'judul' => 'Edit Tahun Akademik',
+            'breadcrumb' => '<li><a href="./?page=tahun-akademik">Tahun Akademik</a></li><li class="active">Edit</li>',
+            'view' => 'tahun_akademik/edit.php'
+        );
+    } else {
+        $data = array(
+            'judul' => 'Tahun Akademik',
+            'breadcrumb' => '<li class="active">Tahun Akademik</li>',
+            'view' => 'tahun_akademik/index.php'
+        );
+    }
 } else if ($page == 'alternatif') {
     if ($proses == 'tambah') {
         $data = array(

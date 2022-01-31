@@ -15,6 +15,13 @@
             <b class="arrow"></b>
         </li>
         <?php if ($_SESSION['level'] == 'admin') : ?>
+            <li class="<?= in_array($page, ['tahun-akademik']) ? 'active' : '' ?>">
+                <a href="./?page=tahun-akademik">
+                    <i class="menu-icon fa fa-calendar"></i>
+                    <span class="menu-text"> Tahun Akademik </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
             <li class="<?= in_array($page, ['kriteria']) ? 'active' : '' ?>">
                 <a href="./?page=kriteria">
                     <i class="menu-icon fa fa-list-alt"></i>
