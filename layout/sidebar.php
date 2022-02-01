@@ -50,6 +50,13 @@
                 </a>
                 <b class="arrow"></b>
             </li>
+            <li class="<?= in_array($page, ['laporan']) ? 'active' : '' ?>">
+                <a href="./?page=laporan">
+                    <i class="menu-icon glyphicon glyphicon-book"></i>
+                    <span class="menu-text"> Laporan </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
             <li class="<?= in_array($page, ['user']) ? 'active' : '' ?>">
                 <a href="./?page=user">
                     <i class="menu-icon fa fa-users"></i>

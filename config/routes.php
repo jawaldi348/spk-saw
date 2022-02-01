@@ -118,6 +118,12 @@ if (in_array($page, [null, 'home'])) {
             'view' => 'user/index.php'
         );
     }
+} else if ($page == 'laporan') {
+    $data = array(
+        'judul' => 'Laporan Mahasiswa Penerima KIP',
+        'breadcrumb' => '<li class="active">Laporan</li>',
+        'view' => 'laporan/index.php'
+    );
 }
 
 return $data;
