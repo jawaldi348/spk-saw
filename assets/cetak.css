@@ -1,0 +1,175 @@
+body {
+   font-family: Tahoma;
+   font-size: 11px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   padding: 2px 0px;
+   margin: 0px;
+}
+
+h1 {
+   font-size: 15pt;
+}
+
+h2 {
+   font-size: 13pt;
+}
+
+h3 {
+   font-size: 11pt;
+}
+
+h4 {
+   font-size: 9pt;
+}
+
+hr {
+   clear: both;
+}
+
+img {
+   margin: 2px;
+}
+
+.center {
+   text-align: center;
+}
+
+div.page-portrait {
+   visibility: visible;
+   font-family: Tahoma;
+   font-size: 11px;
+   margin: 0 auto;
+   width: 18.5cm;
+}
+
+div.page-landscape {
+   visibility: visible;
+   font-family: Tahoma;
+   font-size: 11px;
+   margin: 0 auto;
+   width: 25.5cm;
+}
+
+table {
+   border-collapse: collapse;
+}
+
+.box {
+   border: 1px solid #ccc;
+   padding: 4px;
+}
+
+table tr td {
+   font-family: Tahoma;
+   font-size: 11px;
+   padding: 2px;
+}
+
+table tr th {
+   font-family: Tahoma;
+   font-size: 11px;
+   font-weight: bold;
+   background-color: #fff;
+   padding: 2px;
+}
+
+.tabel-common tr td {
+   font-family: Tahoma;
+   font-size: 11px;
+   padding: 2px;
+   border: 1px solid #ccc;
+   vertical-align: top;
+}
+
+.tabel-common .nama {
+   width: 250px;
+   overflow: hidden;
+}
+
+.tabel-common tr th {
+   font-family: Tahoma;
+   font-size: 11px;
+   font-weight: bold;
+   background-color: #fff;
+   padding: 2px;
+   border: 1px solid #ccc;
+}
+
+.incommon-separator {
+   border-top: 1px solid #fff !important;
+   border-left: 1px solid #fff !important;
+   border-right: 1px solid #fff !important;
+   border-bottom: 1px solid #ccc !important;
+}
+
+.incommon-noseparator {
+   border: 1px solid #fff !important;
+}
+
+.bottom-separator {
+   border-bottom: 1px solid #ccc !important;
+}
+
+.tabel-info tr th {
+   font-family: Tahoma;
+   font-size: 11px;
+   padding: 2px;
+   font-weight: bold;
+   float: left;
+   vertical-align: top;
+}
+.tabel-info tr td {
+   font-family: Tahoma;
+   font-size: 11px;
+   padding: 2px;
+   font-weight: normal;
+   vertical-align: top;
+}
+
+div.nobreak .hidden {
+   visibility: hidden;
+   display: none;
+}
+
+div.page-break .hidden {
+   visibility: visible;
+   margin: 10px 0px 10px 0px;
+}
+
+.page-break {
+   clear: both;
+}
+
+.link {
+	clear:both;
+	visibility: visible;
+}
+
+#header .separatorAlamat{
+   background-color:#5C74B0;
+   color:#fff;
+   height:40px;
+   font-size: 13px;
+}
+
+.warning {
+    background-color: yellow !important;
+ }
+
+.hidden{
+    display: none;
+}
+
+.bahasa{
+   position: ;
+}
+
+.skor{
+   margin-left: 100px;
+}
+
+.tanggal{
+   margin-left: 93px;
+}
