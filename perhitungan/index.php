@@ -1,68 +1,41 @@
-<?php
-require 'alternatif/data.php';
-$data = new data();
-$data_mahasiswa = $data->data_mahasiswa();
-?>
-<div class="table-header">Matriks Normalisasi</div>
-<div>
-    <table id="dynamic-table" class="table table-striped table-bordered table-hover">
-        <thead>
-            <tr>
-                <th class="center" width="5%">No</th>
-                <th>No Pendaftaran</th>
-                <th>Nama</th>
-                <?php foreach ($data_mahasiswa['kriteria'] as $kriteria) { ?>
-                    <td class="text-center"><?= $kriteria['nama_kriteria'] ?></td>
-                <?php } ?>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $no = 1;
-            foreach ($data_mahasiswa['mahasiswa'] as $mahasiswa) { ?>
-                <tr>
-                    <td class="center"><?= $no ?></td>
-                    <td><?= $mahasiswa['nodaftar_mhs'] ?></td>
-                    <td><?= $mahasiswa['nama_mhs'] ?></td>
-                    <?php foreach ($mahasiswa['kriteria'] as $nilai_kriteria) { ?>
-                        <td class="text-center"><?= number_format($nilai_kriteria['normalisasi_kriteria'], 2, '.', '') ?></td>
-                    <?php } ?>
-                </tr>
-            <?php $no++;
-            } ?>
-        </tbody>
-    </table>
+<div class="table-header">Matriks Normalisasi
+    <div class="pull-right" style="padding: 2px;">
+        <select name="tahun" id="tahun" class="form-control">
+            <option value="">Pilih Tahun Akademik</option>
+            <?php $query_tahun = "SELECT * FROM tahun_akademik";
+            $result_tahun = $connect->query($query_tahun);
+            while ($data_tahun = $result_tahun->fetch_array(MYSQLI_ASSOC)) { ?>
+                <option value="<?= $data_tahun['id_tahun'] ?>"><?= $data_tahun['nama_tahun'] ?></option>
+            <?php } ?>
+        </select>
+    </div>
 </div>
-<hr>
-<div class="table-header">Hasil Rekomendasi Penerimaan Peserta KIP</div>
-<div>
-    <table id="dynamic-table" class="table table-striped table-bordered table-hover">
-        <thead>
-            <tr>
-                <th class="center" width="5%">No</th>
-                <th>No Pendaftaran</th>
-                <th>Nama</th>
-                <th class="text-center">Total Poin</th>
-                <th class="text-center">SAW</th>
-                <th class="text-center">Persentase</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            array_multisort(array_map(function ($element) {
-                return $element['total_nilai'];
-            }, $data_mahasiswa['mahasiswa']), SORT_DESC, $data_mahasiswa['mahasiswa']);
-            $no = 1;
-            foreach ($data_mahasiswa['mahasiswa'] as $mahasiswa) { ?>
-                <tr>
-                    <td class="center"><?= $no ?></td>
-                    <td><?= $mahasiswa['nodaftar_mhs'] ?></td>
-                    <td><?= $mahasiswa['nama_mhs'] ?></td>
-                    <td class="text-center"><?= $mahasiswa['total_poin'] ?></td>
-                    <td class="text-center"><?= $mahasiswa['total_nilai'] ?></td>
-                    <td class="text-center"><?= $mahasiswa['persentase'] ?>%</td>
-                </tr>
-            <?php $no++;
-            } ?>
-        </tbody>
-    </table>
-</div>
+<?php $query_tahun = "SELECT * FROM tahun_akademik WHERE status_tahun='1'";
+$execute_tahun = $connect->query($query_tahun);
+$data_tahun = $execute_tahun->fetch_array(MYSQLI_ASSOC); ?>
+<input type="hidden" name="idtahun" id="idtahun" value="<?= $data_tahun['id_tahun'] ?>">
+<div id="data-tabel"></div>
+<script>
+    $(document).ready(function() {
+        var idtahun = $('#idtahun').val();
+        data_mahasiswa(idtahun);
+    });
+
+    function data_mahasiswa(idtahun) {
+        $.ajax({
+            url: 'perhitungan/data.php',
+            method: 'get',
+            data: {
+                idtahun: idtahun
+            },
+            success: function(resp) {
+                $('#data-tabel').html(resp);
+            }
+        })
+    }
+
+    $('#tahun').change(function() {
+        var idtahun = $(this).val();
+        data_mahasiswa(idtahun);
+    });
+</script>

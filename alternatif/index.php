@@ -21,10 +21,10 @@
 <script>
     $(document).ready(function() {
         var idtahun = $('#idtahun').val();
-        data_kelas_kuliah(idtahun);
+        data_mahasiswa(idtahun);
     });
 
-    function data_kelas_kuliah(idtahun) {
+    function data_mahasiswa(idtahun) {
         $.ajax({
             url: 'alternatif/data.php',
             method: 'get',
@@ -39,6 +39,6 @@
 
     $('#tahun').change(function() {
         var idtahun = $(this).val();
-        data_kelas_kuliah(idtahun);
+        data_mahasiswa(idtahun);
     });
 </script>
