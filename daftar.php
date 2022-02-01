@@ -6,6 +6,11 @@ if (isset($_POST['tambah'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    $query_tahun = "SELECT * FROM tahun_akademik WHERE status_tahun='1'";
+    $execute_tahun = $connect->query($query_tahun);
+    $data_tahun = $execute_tahun->fetch_array(MYSQLI_ASSOC);
+    $idtahun = $data_tahun['id_tahun'];
+
     $query_username = "SELECT * FROM mahasiswa WHERE username_mhs='$username'";
     $cek_username = $connect->query($query_username);
     if ($nama == '' || $username == '' || $password == '') {
@@ -13,7 +18,7 @@ if (isset($_POST['tambah'])) {
     } else if ($cek_username->num_rows > 0) {
         $error = 'Username sudah digunakan';
     } else {
-        $query = "INSERT INTO mahasiswa(nama_mhs,username_mhs,password_mhs) VALUES('$nama','$username',md5('$password'))";
+        $query = "INSERT INTO mahasiswa(idtahun_mhs,nama_mhs,username_mhs,password_mhs) VALUES('$idtahun','$nama','$username',md5('$password'))";
         if ($connect->query($query) === true) {
             echo '<script>window.location.replace("login.php")</script>';
         }
