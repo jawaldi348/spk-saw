@@ -39,10 +39,9 @@ if (isset($_SESSION['iduser'])) {
                         <div class="center">
                             <h1>
                                 <i class="ace-icon fa fa-university green"></i>
-                                <span class="red">IBT</span>
-                                <span class="white" id="id-text2">PI</span>
+                                <span class="red">IBTPI</span>
                             </h1>
-                            <h4 class="blue" id="id-company-text">SPK Metode SAW</h4>
+                            <h4 class="blue" id="id-company-text">Sistem Informasi Seleksi Mahasiswa Penerima KIP</h4>
                         </div>
 
                         <div class="space-6"></div>
