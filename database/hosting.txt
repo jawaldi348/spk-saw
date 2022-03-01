@@ -6,3 +6,19 @@ Username : id18355849_spk_saw_root
 Password : 55eZwuUXx@4?G?Dn
 
 https://kipibtpi.000webhostapp.com/login.php
+
+Hostinger : 9t0B~Nh;4@Sg
+
+Rumah Web : gnDgdMhthnJS725
+
+FTP Access
+FTP hostname : ftp://polresagam.id
+FTP username : u138120269.kipibtpi.my.id
+FTP password : 9t0B~Nh;4@Sg
+FTP port     : 21
+
+Remote MySql
+MySQL server hostname : sql152.main-hosting.eu
+Username 	      : u138120269_kipibtpi
+Password	      : Y=x4kXi;3oA
+Database 	      : u138120269_kipibtpi
