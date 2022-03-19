@@ -1,5 +1,5 @@
 <div class="text-center">
-	<h2>Selamat Datang Di Sistem Informasi Seleksi Penerima Kartu Indonesia Pintar IBTPI</h2>
+	<h2>Selamat Datang di Sistem Seleksi Mahasiswa Penerima Kartu Indonesia Pintar IBTPI</h2>
 	<div class="row">
 		<div class="col-md-6">
 			<img src="./assets/images/banner1.jpg" class="img-responsive">
