@@ -35,18 +35,16 @@ $data = $execute->fetch_array(MYSQLI_ASSOC);
                             <small>Welcome,</small>
                             <?= $data['nama'] ?>
                         </span>
-
-                        <i class="ace-icon fa fa-caret-down"></i>
+                        <!-- <i class="ace-icon fa fa-caret-down"></i> -->
                     </a>
-
-                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                    <!-- <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
                             <a href="profile.html">
                                 <i class="ace-icon fa fa-user"></i>
                                 Profil
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
             </ul>
         </div>
