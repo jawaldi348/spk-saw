@@ -82,7 +82,21 @@
         </li>
     </ul>
 
-    <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-        <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
-    </div>
+    <?php if ($_SESSION['level'] == 'admin') : ?>
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+        <?php else :
+        $iduser = $_SESSION['iduser'];
+        $query_terima = "SELECT *,nama_mhs AS nama FROM mahasiswa WHERE kode_mhs='$iduser'";
+        $execute_terima = $connect->query($query_terima);
+        $data_terima = $execute_terima->fetch_array(MYSQLI_ASSOC);
+        if ($data_terima['status_terima'] == 1) :
+        ?>
+            <div class="alert alert-block alert-success text-center" style="margin-top: 30px;">Selamat kamu telah diterima menjadi mahasiswa di Institut Bisnis dan Teknologi Pelita Indonesia.</div>
+        <?php elseif ($data_terima['status_terima'] == 2) : ?>
+            <div class="alert alert-block alert-danger text-center" style="margin-top: 30px;">Maaf kamu belum diterima di Institut Bisnis dan Teknologi Pelita Indonesia.</div>
+        <?php else : echo '';
+        endif ?>
+    <?php endif ?>
 </div>
