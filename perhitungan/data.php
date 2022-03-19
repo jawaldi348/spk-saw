@@ -122,7 +122,7 @@ $data = [
                 <th class="center" width="5%">No</th>
                 <th>No Pendaftaran</th>
                 <th>Nama</th>
-                <th class="text-center">Total Poin</th>
+                <!-- <th class="text-center">Total Poin</th> -->
                 <th class="text-center">SAW</th>
                 <th class="text-center">Persentase</th>
                 <th class="text-center">Status Diterima</th>
@@ -139,7 +139,7 @@ $data = [
                     <td class="center"><?= $no ?></td>
                     <td><?= $mahasiswa['nodaftar_mhs'] ?></td>
                     <td><?= $mahasiswa['nama_mhs'] ?></td>
-                    <td class="text-center"><?= $mahasiswa['total_poin'] ?></td>
+                    <!-- <td class="text-center">$mahasiswa['total_poin']</td> -->
                     <td class="text-center"><?= $mahasiswa['total_nilai'] ?></td>
                     <td class="text-center"><?= $mahasiswa['persentase'] ?>%</td>
                     <td class="text-center"><?= $mahasiswa['status_terima'] == 0 ? '<span class="badge badge-warning">Pending</span>' : ($mahasiswa['status_terima'] == 1 ? '<span class="badge badge-success">Diterima</span>' : '<span class="badge badge-danger">Tidak Diterima</span>') ?></td>

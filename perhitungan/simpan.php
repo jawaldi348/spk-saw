@@ -13,7 +13,11 @@ $query = "SELECT * FROM mahasiswa JOIN tahun_akademik ON idtahun_mhs=id_tahun WH
 $execute = $connect->query($query);
 while ($rows = $execute->fetch_array(MYSQLI_ASSOC)) {
     $id = $rows['kode_mhs'];
-    $query = "UPDATE mahasiswa SET status_terima='2' WHERE kode_mhs='$id'";
+    if($jumlah == 0) :
+        $query = "UPDATE mahasiswa SET status_terima='0' WHERE kode_mhs='$id'";
+    else :
+        $query = "UPDATE mahasiswa SET status_terima='2' WHERE kode_mhs='$id'";
+    endif;
     $connect->query($query);
     $result = [
         'kode_mhs' => $rows['kode_mhs'],
