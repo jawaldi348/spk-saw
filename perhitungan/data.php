@@ -10,7 +10,8 @@ while ($rows = $execute->fetch_array(MYSQLI_ASSOC)) {
     $result = [
         'kode_mhs' => $rows['kode_mhs'],
         'nodaftar_mhs' => $rows['nodaftar_mhs'],
-        'nama_mhs' => $rows['nama_mhs']
+        'nama_mhs' => $rows['nama_mhs'],
+        'status_terima' => $rows['status_terima'],
     ];
     $data_kriteria = [];
     $result_kriteria = [];
@@ -100,6 +101,19 @@ $data = [
     </table>
 </div>
 <hr>
+<div class="row">
+    <form action="perhitungan/simpan.php" method="POST">
+        <input type="hidden" name="tahun" value="<?= $idtahun; ?>">
+        <div class="col-xs-12 col-sm-4">
+            <div class="form-group">
+                <input type="text" name="jumlah" id="jumlah" class="form-control" placeholder="Input jumlah mahasiswa diterima dari persentase terbesar">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <button type="submit" class="btn btn-xs btn-success"><i class="ace-icon fa fa-floppy-o bigger-110"></i> Simpan Data Mahasiswa Diterima</button>
+        </div>
+    </form>
+</div>
 <div class="table-header">Hasil Rekomendasi Penerimaan Peserta KIP</div>
 <div>
     <table id="dynamic-table" class="table table-striped table-bordered table-hover">
@@ -111,6 +125,7 @@ $data = [
                 <th class="text-center">Total Poin</th>
                 <th class="text-center">SAW</th>
                 <th class="text-center">Persentase</th>
+                <th class="text-center">Status Diterima</th>
             </tr>
         </thead>
         <tbody>
@@ -127,6 +142,7 @@ $data = [
                     <td class="text-center"><?= $mahasiswa['total_poin'] ?></td>
                     <td class="text-center"><?= $mahasiswa['total_nilai'] ?></td>
                     <td class="text-center"><?= $mahasiswa['persentase'] ?>%</td>
+                    <td class="text-center"><?= $mahasiswa['status_terima'] == 0 ? '<span class="badge badge-warning">Pending</span>' : ($mahasiswa['status_terima'] == 1 ? '<span class="badge badge-success">Diterima</span>' : '<span class="badge badge-danger">Tidak Diterima</span>') ?></td>
                 </tr>
             <?php $no++;
             } ?>
