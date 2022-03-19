@@ -21,7 +21,7 @@ $data = $execute->fetch_array(MYSQLI_ASSOC);
 
         <div class="navbar-header pull-left">
             <a href="index.html" class="navbar-brand text-center">
-                <small>Sistem Penerimaan Peserta KIP Kuliah Menggunakan Metode SAW</small>
+                <small>Sistem Seleksi Mahasiswa Penerima KIP</small>
             </a>
         </div>
 
@@ -44,13 +44,6 @@ $data = $execute->fetch_array(MYSQLI_ASSOC);
                             <a href="profile.html">
                                 <i class="ace-icon fa fa-user"></i>
                                 Profil
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <i class="ace-icon fa fa-power-off"></i>
-                                Logout
                             </a>
                         </li>
                     </ul>

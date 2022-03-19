@@ -41,7 +41,7 @@ if (isset($_SESSION['iduser'])) {
                                 <i class="ace-icon fa fa-university green"></i>
                                 <span class="red">IBTPI</span>
                             </h1>
-                            <h4 class="blue" id="id-company-text">Sistem Informasi Seleksi Mahasiswa Penerima KIP</h4>
+                            <h4 class="blue" id="id-company-text">Sistem Seleksi Mahasiswa Penerima KIP</h4>
                         </div>
 
                         <div class="space-6"></div>
