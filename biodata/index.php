@@ -37,7 +37,7 @@ if (isset($_POST['tambah'])) {
     <div class="col-sm-offset-2 col-sm-8">
         <div class="widget-box">
             <div class="widget-header">
-                <h4 class="widget-title">Biodata Mahasiswa</h4>
+                <h4 class="widget-title">Input Prasyarat</h4>
             </div>
             <div class="widget-body">
                 <form action="" method="POST">

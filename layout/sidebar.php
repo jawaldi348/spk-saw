@@ -68,7 +68,7 @@
             <li class="<?= in_array($page, ['biodata']) ? 'active' : '' ?>">
                 <a href="./?page=biodata">
                     <i class="menu-icon fa fa-list-alt"></i>
-                    <span class="menu-text"> Biodata </span>
+                    <span class="menu-text"> Prasyarat </span>
                 </a>
                 <b class="arrow"></b>
             </li>
