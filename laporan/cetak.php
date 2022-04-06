@@ -30,16 +30,16 @@ while ($rows = $execute->fetch_array(MYSQLI_ASSOC)) {
             'bobot_kriteria' => $kriteria['bobot_kriteria']
         ];
         $kode_kriteria = $kriteria['kode_kriteria'];
-        $query_nilai = "SELECT * FROM biodata JOIN subkriteria ON id_subkriteria=kode_subkriteria WHERE id_mahasiswa='$id' AND id_kriteria='$kode_kriteria'";
+        $query_nilai = "SELECT * FROM prasyarat JOIN subkriteria ON id_subkriteria=kode_subkriteria WHERE id_mahasiswa='$id' AND id_kriteria='$kode_kriteria'";
         $query_result_nilai = $connect->query($query_nilai);
         $data_nilai = $query_result_nilai->fetch_array(MYSQLI_ASSOC);
         $result_kriteria['bobot_subkriteria'] = $data_nilai['bobot_subkriteria'];
         $result_kriteria['nama_subkriteria'] = $data_nilai['nama_subkriteria'];
         // Normalisasi Kriteria
         if ($kode_kriteria == 'K3') :
-            $sql_normalisasi_kriteria = "select min(bobot_subkriteria) as min_kriteria from biodata join subkriteria on id_subkriteria=kode_subkriteria where id_kriteria='$kode_kriteria'";
+            $sql_normalisasi_kriteria = "select min(bobot_subkriteria) as min_kriteria from prasyarat join subkriteria on id_subkriteria=kode_subkriteria where id_kriteria='$kode_kriteria'";
         else :
-            $sql_normalisasi_kriteria = "select max(bobot_subkriteria) as max_kriteria from biodata join subkriteria on id_subkriteria=kode_subkriteria where id_kriteria='$kode_kriteria'";
+            $sql_normalisasi_kriteria = "select max(bobot_subkriteria) as max_kriteria from prasyarat join subkriteria on id_subkriteria=kode_subkriteria where id_kriteria='$kode_kriteria'";
         endif;
         $sql_result_normalisasi_kriteria = $connect->query($sql_normalisasi_kriteria);
         $data_normalisasi_kriteria = $sql_result_normalisasi_kriteria->fetch_array(MYSQLI_ASSOC);

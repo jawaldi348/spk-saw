@@ -15,14 +15,14 @@ if (isset($_POST['tambah'])) {
             $id_kriteria = $kriteria['id_kriteria'];
             $id_subkriteria = $kriteria['sub_kriteria'];
             if ($id_subkriteria != '') {
-                $periksa_data = "SELECT * FROM biodata WHERE id_mahasiswa='$id' AND id_kriteria='$id_kriteria'";
+                $periksa_data = "SELECT * FROM prasyarat WHERE id_mahasiswa='$id' AND id_kriteria='$id_kriteria'";
                 $execute_periksa = $connect->query($periksa_data);
                 if ($execute_periksa->num_rows > 0) {
                     $data_periksa = $execute_periksa->fetch_array(MYSQLI_ASSOC);
-                    $idbiodata = $data_periksa['id_biodata'];
-                    $query_subkriteria = "UPDATE biodata SET id_subkriteria='$id_subkriteria' WHERE id_biodata='$idbiodata'";
+                    $idbiodata = $data_periksa['id_prasyarat'];
+                    $query_subkriteria = "UPDATE prasyarat SET id_subkriteria='$id_subkriteria' WHERE id_prasyarat='$idbiodata'";
                 } else {
-                    $query_subkriteria = "INSERT INTO biodata(id_mahasiswa,id_kriteria,id_subkriteria) VALUES('$id','$id_kriteria','$id_subkriteria')";
+                    $query_subkriteria = "INSERT INTO prasyarat(id_mahasiswa,id_kriteria,id_subkriteria) VALUES('$id','$id_kriteria','$id_subkriteria')";
                 }
                 $connect->query($query_subkriteria);
             }
@@ -63,7 +63,7 @@ if (isset($_POST['tambah'])) {
                                         if ($resultsub->num_rows > 0) {
                                             while ($subkriteria = $resultsub->fetch_array(MYSQLI_ASSOC)) {
                                                 $id_subkriteria = $subkriteria['kode_subkriteria'];
-                                                $query_cek = "SELECT * FROM biodata WHERE id_mahasiswa='$id' AND id_subkriteria='$id_subkriteria'";
+                                                $query_cek = "SELECT * FROM prasyarat WHERE id_mahasiswa='$id' AND id_subkriteria='$id_subkriteria'";
                                                 $execute = $connect->query($query_cek);
                                                 $data_cek = $execute->fetch_array(MYSQLI_ASSOC);
                                                 $selected = $data_cek != null ? 'selected' : '';
